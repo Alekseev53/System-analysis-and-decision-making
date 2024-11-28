@@ -53,14 +53,17 @@ input_str = """{
     }
 }"""
 
-edges = json_to_edges(input_str)
-print("Edges:", edges)
-adjacency_matrix = edges_to_adjacency_matrix(edges)
-print("Adjacency Matrix:")
-for row in adjacency_matrix:
-    print(row)
+def main(input_str):
+    edges = json_to_edges(input_str)
+    print("Edges:", edges)
+    adjacency_matrix = edges_to_adjacency_matrix(edges)
+    print("Adjacency Matrix:")
+    for row in adjacency_matrix:
+        print(row)
 
-adjacency_list = edges_to_adjacency_list(edges)
-print("Adjacency List:")
-for node in sorted(adjacency_list):
-    print(f"{node}: {adjacency_list[node]}")
+    adjacency_list = edges_to_adjacency_list(edges)
+    print("Adjacency List:")
+    for node in sorted(adjacency_list):
+        print(f"{node}: {adjacency_list[node]}")
+
+main(input_str)

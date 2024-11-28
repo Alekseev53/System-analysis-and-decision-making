@@ -84,8 +84,10 @@ input_string = '''{
     }
 }
 '''
+def main(input_string):
+    network_structure = json_to_network(input_string)
+    relationship_matrix = compute_relationships(network_structure)
+    entropy_value = compute_entropy(relationship_matrix)
+    print(f"Значение энтропии: {round(entropy_value, 2)}")
 
-network_structure = json_to_network(input_string)
-relationship_matrix = compute_relationships(network_structure)
-entropy_value = compute_entropy(relationship_matrix)
-print(f"Значение энтропии: {round(entropy_value, 2)}")
+main(input_string)

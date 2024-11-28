@@ -48,35 +48,38 @@ def r5_peer_subordination(node):
     siblings.discard(node)
     return siblings
 
-# Построим дерево
-A = Node("A")
-B = Node("B")
-C = Node("C")
-D = Node("D")
-E = Node("E")
-F = Node("F")
-G = Node("G")
+def main():
+    # Построим дерево
+    A = Node("A")
+    B = Node("B")
+    C = Node("C")
+    D = Node("D")
+    E = Node("E")
+    F = Node("F")
+    G = Node("G")
 
-add_edge(A, B)
-add_edge(A, C)
-add_edge(B, D)
-add_edge(B, E)
-add_edge(C, F)
-add_edge(C, G)
+    add_edge(A, B)
+    add_edge(A, C)
+    add_edge(B, D)
+    add_edge(B, E)
+    add_edge(C, F)
+    add_edge(C, G)
 
-nodes = [A, B, C, D, E, F, G]
-results = {}
+    nodes = [A, B, C, D, E, F, G]
+    results = {}
 
-for node in nodes:
-    results[node.value] = {
-        "r1_direct_management": len(r1_direct_management(node)),
-        "r2_direct_subordination": len(r2_direct_subordination(node)),
-        "r3_indirect_management": len(r3_indirect_management(node)),
-        "r4_indirect_subordination": len(r4_indirect_subordination(node)),
-        "r5_peer_subordination": len(r5_peer_subordination(node))
-    }
+    for node in nodes:
+        results[node.value] = {
+            "r1_direct_management": len(r1_direct_management(node)),
+            "r2_direct_subordination": len(r2_direct_subordination(node)),
+            "r3_indirect_management": len(r3_indirect_management(node)),
+            "r4_indirect_subordination": len(r4_indirect_subordination(node)),
+            "r5_peer_subordination": len(r5_peer_subordination(node))
+        }
 
-# Вывод результатов
-print(f"{'Node':<3}{'r1_direct_management':<20} {'r2_direct_subordination':<20} {'r3_indirect_management':<20} {'r4_indirect_subordination':<20} {'r5_peer_subordination':<20}")
-for node, info in results.items():
-    print(f"{node:<3} {str(info['r1_direct_management']):<20} {str(info['r2_direct_subordination']):<20} {str(info['r3_indirect_management']):<20} {str(info['r4_indirect_subordination']):<20} {str(info['r5_peer_subordination']):<20}")
+    # Вывод результатов
+    print(f"{'Node':<3}{'r1_direct_management':<20} {'r2_direct_subordination':<20} {'r3_indirect_management':<20} {'r4_indirect_subordination':<20} {'r5_peer_subordination':<20}")
+    for node, info in results.items():
+        print(f"{node:<3} {str(info['r1_direct_management']):<20} {str(info['r2_direct_subordination']):<20} {str(info['r3_indirect_management']):<20} {str(info['r4_indirect_subordination']):<20} {str(info['r5_peer_subordination']):<20}")
+
+main()
