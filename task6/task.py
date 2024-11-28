@@ -1,32 +1,24 @@
-#напиши алгоритм в обратную сторону из А получающий а
-#Пока не верно
-def main(A):
-    n = len(A)
-    
-    # Вычисляем количество превосходств для каждого элемента (количество единиц в строке)
-    superiority_count = [sum(row) for row in A]
-    
-    # В result для каждого i укажем его ранг на основе количество превосходств.
-    result = [0] * n
-    
-    # Связываем каждый элемент c его количеством превосходств и сортируем по этому числу
-    # Чем больше превосходств, тем выше ранг (меньший номер в списке `a`).
-    sorted_indices = sorted(range(n), key=lambda i: superiority_count[i], reverse=True)
-    
-    # Поскольку у нас начиная с ранга "1" самый крутой элемент: рейтингу
-    # с большим количеством единиц присваиваем меньший номер.
-    for rank, index in enumerate(sorted_indices):
-        result[index] = rank + 1  # Для получения ранжировки от 1 до n
-    
-    return result
+import json
 
+def main(input_str, element_for_phasing):
+    data = json.loads(input_str)
+    print(data)
+    return None
 
-# Пример
-A = [
-    [1, 1, 0],
-    [0, 1, 0],
-    [1, 0, 1],
-]
+input_str = """{
+    "комфортно": [
+        [16, 0],
+        [20, 1],
+        [22, 1],
+        [26, 0]
+    ],
+    "холодно": [
+        [0, 1],
+        [16, 1],
+        [20, 0],
+        [50, 0]
+    ]
+}"""
 
-a = main(A)
-print(a)
+element_for_phasing = 17
+main(input_str, element_for_phasing)
