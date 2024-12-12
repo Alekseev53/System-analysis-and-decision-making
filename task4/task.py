@@ -25,7 +25,7 @@ def main(input_matrix):
     H_XY_through_sum = H_Y + overall_conditional_H 
     
     print(f"I(X,Y) = Количество информации: {round(information_quantity, 2)}")
-    print(f"H(XY) = Энтропия совместного события: {round(H_XY_through_sum, 2)} (для обоих способов расчета)")
+    print(f"H(XY) = Энтропия совместного события: {round(H_XY_through_sum, 2)}")
 
 test_matrix = [[20, 15, 10, 5],
                [30, 20, 15, 10],
